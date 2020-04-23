@@ -9,6 +9,7 @@ public class moveball : MonoBehaviour
     public float horizVel=0;
     public int lanenum = 0;
     public bool lockcont=false;
+    public int multiplier;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,5 +42,9 @@ public class moveball : MonoBehaviour
         yield return new WaitForSeconds(1f);
         horizVel = 0;
         lockcont = false;
+    }
+    private void FixedUpdate() {
+         this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*this.GetComponent<Rigidbody>().mass*multiplier);
+        
     }
 }
