@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class moveball : MonoBehaviour
 {
+    public KeyCode increasegrav;
     public KeyCode moveLeft;
     public  KeyCode moveRight;
     public float horizVel=0;
     public int lanenum = 0;
     public bool lockcont=false;
-    public int multiplier;
+    public float movespeed=4.0f;
+    public float multiplier;
+    public float downtime;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+       GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);
+       this.GetComponent<Rigidbody>().AddForce(new Vector3 (0,0,movespeed),ForceMode.VelocityChange);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);
+        
         if (Input.GetKeyDown(moveLeft)&&lanenum==1&& lockcont==false)
         {
             horizVel = -6;
@@ -34,6 +39,16 @@ public class moveball : MonoBehaviour
             lanenum++;
            lockcont= true;
         }
+         if (Input.GetKey(increasegrav)){
+             downtime=Time.time;
+             multiplier=downtime*downtime;        
+             }
+        else {
+            multiplier= 1;
+            downtime=0;
+        } 
+
+         
 
     }
     IEnumerator stopSlide()
@@ -42,9 +57,11 @@ public class moveball : MonoBehaviour
         yield return new WaitForSeconds(1f);
         horizVel = 0;
         lockcont = false;
+
     }
-    private void FixedUpdate() {
+     private void FixedUpdate() {
          this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*this.GetComponent<Rigidbody>().mass*multiplier);
         
     }
+   
 }
