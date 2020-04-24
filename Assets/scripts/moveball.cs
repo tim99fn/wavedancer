@@ -13,12 +13,16 @@ public class moveball : MonoBehaviour
     public float movespeed=4.0f;
     public float multiplier;
     public float downtime;
+    public float yvelocity;
+    public float timer;
+
     
     // Start is called before the first frame update
     void Start()
     {
        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);
-       this.GetComponent<Rigidbody>().AddForce(new Vector3 (0,0,movespeed),ForceMode.VelocityChange);
+       
+    this.GetComponent<Rigidbody>().AddForce(new Vector3 (0,0,movespeed),ForceMode.VelocityChange);
     }
 
     // Update is called once per frame
@@ -39,16 +43,9 @@ public class moveball : MonoBehaviour
             lanenum++;
            lockcont= true;
         }
-         if (Input.GetKey(increasegrav)){
-             downtime=Time.time;
-             multiplier=downtime*downtime;        
-             }
-        else {
-            multiplier= 1;
-            downtime=0;
-        } 
-
          
+
+         yvelocity= GetComponent<Rigidbody>().velocity.y;
 
     }
     IEnumerator stopSlide()
@@ -60,8 +57,19 @@ public class moveball : MonoBehaviour
 
     }
      private void FixedUpdate() {
-         this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*this.GetComponent<Rigidbody>().mass*multiplier);
-        
+      if (Input.GetKey(increasegrav)){
+             if (multiplier<90){
+
+             
+             timer+=0.25f;   
+             multiplier= timer*timer; 
+             }    
+             }
+        else {
+            multiplier= 0.5f;
+            timer=0;;
+        } 
+         this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*multiplier, ForceMode.Acceleration);
     }
    
 }

@@ -16,7 +16,7 @@ private GameObject _camera;
       void Update() {
        
     
-        if(_camera.transform.position.z>(this.transform.position.z+25)){
+        if(_camera.transform.position.z>(this.transform.position.z+50)){
            _lanespawner.RecyclePlatform(this.gameObject);
 
         }
