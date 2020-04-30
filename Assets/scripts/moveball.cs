@@ -62,13 +62,14 @@ public class moveball : MonoBehaviour
 
              
              timer+=0.25f;   
-             multiplier= timer*timer; 
+             multiplier= timer*6; 
              }    
              }
         else {
             multiplier= 0.5f;
             timer=0;;
         } 
+
          this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*multiplier, ForceMode.Acceleration);
     }
    

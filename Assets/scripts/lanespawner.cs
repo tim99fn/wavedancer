@@ -8,7 +8,7 @@ public class lanespawner : MonoBehaviour
     private List <GameObject> insantiatedlanes;
    private GameObject [] instantlane;
    private Vector3 offset;
-
+    private int random_y;
    
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,7 @@ public class lanespawner : MonoBehaviour
            offset=platform.transform.position;
 platform.transform.position=offset+new Vector3(0,0,300);
 
+platform.transform.localScale = new Vector3(platform.transform.localScale.y,Random.Range(1,30),platform.transform.localScale.z);
 
     }
     }
