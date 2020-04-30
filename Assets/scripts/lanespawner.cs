@@ -16,7 +16,7 @@ public class lanespawner : MonoBehaviour
        
         for (int k=0;k<3;k++){
         for ( int i=0; i<2;i++){
-        Instantiate(laneprefab[i],new Vector3(i*6,0,k*100),Quaternion.Euler(0,90,0));
+        Instantiate(laneprefab[i],new Vector3(i*6,0,k*100),Quaternion.Euler(-90,90,0));
      
 
         }
