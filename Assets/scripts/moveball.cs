@@ -62,7 +62,7 @@ public class moveball : MonoBehaviour
 
              
              timer+=0.25f;   
-             multiplier= timer*6; 
+             multiplier= timer*5; 
              }    
              }
         else {
