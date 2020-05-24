@@ -5,22 +5,22 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
 
-    public Transform platformGenerator;
-    private Vector3 platformStartpoint;
+    //public lanespawner platformGenerator;
+    //private Vector3 platformStartpoint;
 
     public GameObject theSphere;
     private Vector3 SphereStartPoint;
     // Start is called before the first frame update
     void Start()
     {
-        platformStartpoint = platformGenerator.position;
+        //platformStartpoint = platformGenerator.position;
         SphereStartPoint = theSphere.transform.position;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {  
+       
     }
 
     public void RestartGame()
@@ -28,10 +28,10 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine ("RestartGameCo");
     }
 
-    public IEnumerator RestartGameCo ()
+    public IEnumerator RestartGameCo()
     {
         yield return new WaitForSeconds(2f);
         theSphere.transform.position = SphereStartPoint;
-        platformGenerator.position = platformStartpoint;
+        //platformGenerator.position = platformStartpoint;
     }
 }

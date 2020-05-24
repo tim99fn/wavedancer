@@ -6,7 +6,7 @@ public class moveball : MonoBehaviour
 {
     public KeyCode increasegrav;
     public KeyCode moveLeft;
-    public  KeyCode moveRight;
+    public KeyCode moveRight;
     public float horizVel=0;
     public int lanenum = 0;
     public bool lockcont=false;
@@ -15,6 +15,8 @@ public class moveball : MonoBehaviour
     public float downtime;
     public float yvelocity;
     public float timer;
+
+    public GameManagerScript theGameManager;
 
     
     // Start is called before the first frame update
@@ -46,6 +48,12 @@ public class moveball : MonoBehaviour
          
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
+
+         if (GetComponent<Rigidbody>().velocity.z < 0)
+         {
+             theGameManager.RestartGame();
+         }
+
 
     }
     IEnumerator stopSlide()

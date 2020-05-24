@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         if (alive){
-            ScoreCounter = ((int)sphere.transform.position.z - 20)/10;
+            ScoreCounter = ((int)sphere.transform.position.z - 25)/10;
         }
         
 
