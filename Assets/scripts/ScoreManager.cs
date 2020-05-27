@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public Text HighscoreText;
 
     private int ScoreCounter;
-    private int HighscoreCounter;
+    static private int HighscoreCounter;
     private int HighscoreThisGame;
 
     public bool alive;

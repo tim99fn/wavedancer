@@ -7,14 +7,19 @@ public class MainMenuScrpt : MonoBehaviour
 {
     private string loadLevel = "szene_game0705";
     private int HighscoreCounter;
-    public ScoreManager ScoreManager;
+    //public ScoreManager ScoreManager;
+    static int Highscore;
 
+
+    private void start()
+    {
+        //HighscoreCounter = ScoreManager.returnHighscore();
+    }
     public void startGame () 
     {
         
 
         Application.LoadLevel(loadLevel);
-        //HighscoreCounter = ScoreManager.returnHighscore();
 
     }
 
