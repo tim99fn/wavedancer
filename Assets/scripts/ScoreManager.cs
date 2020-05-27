@@ -39,4 +39,9 @@ public class ScoreManager : MonoBehaviour
         ScoreText.text = "Score: " + ScoreCounter;
         HighscoreText.text = "Highscore: " + HighscoreCounter;
     }
+
+    public int returnHighscore()
+    {
+        return HighscoreCounter;
+    }
 }

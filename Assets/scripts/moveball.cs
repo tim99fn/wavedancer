@@ -17,12 +17,15 @@ public class moveball : MonoBehaviour
     public float timer;
 
     public GameManagerScript theGameManager;
+    private lanespawner _lanespawner;
 
     
     // Start is called before the first frame update
     void Start()
     {
        GetComponent<Rigidbody>().velocity = new Vector3(horizVel, 0, 0);
+
+       _lanespawner=GameObject.FindObjectOfType<lanespawner>();
        
     this.GetComponent<Rigidbody>().AddForce(new Vector3 (0,0,movespeed),ForceMode.VelocityChange);
     }
@@ -45,15 +48,14 @@ public class moveball : MonoBehaviour
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
 
-         if (GetComponent<Rigidbody>().velocity.z < 0)
+         if (GetComponent<Rigidbody>().velocity.z < -1)
          {
              theGameManager.RestartGame();
+             }
          }
 
-    }
-    
-  
-    
+
+
      private void FixedUpdate() {
       if (Input.GetKey(increasegrav)){
              if (multiplier<90){
@@ -70,5 +72,4 @@ public class moveball : MonoBehaviour
 
          this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*multiplier, ForceMode.Acceleration);
     }
-   
 }

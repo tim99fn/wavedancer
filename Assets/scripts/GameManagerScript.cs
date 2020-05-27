@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
+
 {
 
-    //public lanespawner platformGenerator;
-    //private Vector3 platformStartpoint;
+    private lanespawner _lanespawner;
+    private Vector3 platformStartpoint;
 
     public GameObject theSphere;
     private Vector3 SphereStartPoint;
+
+    public GameObject[] wavelist;
+    public string loadLevel;
+
+    public Text YourScore;
+    public ScoreManager ScoreManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        //platformStartpoint = platformGenerator.position;
+        
         SphereStartPoint = theSphere.transform.position;
     }
 
@@ -30,8 +38,9 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator RestartGameCo()
     {
+        YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
         yield return new WaitForSeconds(2f);
-        theSphere.transform.position = SphereStartPoint;
-        //platformGenerator.position = platformStartpoint;
+        Application.LoadLevel(loadLevel);
+        
     }
 }
