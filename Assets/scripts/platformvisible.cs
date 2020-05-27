@@ -20,5 +20,6 @@ private GameObject _camera;
            _lanespawner.RecyclePlatform(this.gameObject);
 
         }
+      
       }
 }
