@@ -33,32 +33,14 @@ public class moveball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(moveLeft)&&lanenum==1&& lockcont==false)
-        {
-            horizVel = -6;
-            StartCoroutine(stopSlide());
-            lanenum--;
-                lockcont= true;
-        }
-        if (Input.GetKeyDown(moveRight)&&lanenum==0&&lockcont==false)
-        {
-            horizVel = 6;
-            StartCoroutine(stopSlide());
-            lanenum++;
-           lockcont= true;
-        }
-         
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
 
-         if (GetComponent<Rigidbody>().velocity.z < -1)
-         {
-             theGameManager.RestartGame();
-             }
-         }
-
-
+        if (GetComponent<Rigidbody>().velocity.z < 0)
+        {
+            theGameManager.RestartGame();
+        }
+    }
 
      private void FixedUpdate() {
       if (Input.GetKey(increasegrav)){
