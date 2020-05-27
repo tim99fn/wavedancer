@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 
@@ -38,7 +39,7 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator RestartGameCo()
     {
-        YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
+        //YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
         yield return new WaitForSeconds(2f);
         Application.LoadLevel(loadLevel);
         
