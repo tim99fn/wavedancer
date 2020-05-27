@@ -48,13 +48,11 @@ public class moveball : MonoBehaviour
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
 
-         if (GetComponent<Rigidbody>().velocity.z < -1)
-         {
-             theGameManager.RestartGame();
-             }
-         }
-
-
+        if (GetComponent<Rigidbody>().velocity.z < 0 || GetComponent<Rigidbody>().position.y < -32)
+        {
+            theGameManager.RestartGame();
+        }
+    }
 
      private void FixedUpdate() {
       if (Input.GetKey(increasegrav)){
