@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviour
     private Vector3 SphereStartPoint;
 
     public GameObject[] wavelist;
-    public string loadLevel;
+    private string loadLevel = "Main_menu";
 
     public Text YourScore;
     public ScoreManager ScoreManager;
@@ -40,13 +40,13 @@ public class GameManagerScript : MonoBehaviour
     public IEnumerator RestartGameCo()
     {
         YourScore.enabled = true;
-        if (ScoreManager.returnHighscore()<50)
+        if (ScoreManager.returnHighscoreThisGame()<50)
         {
-            YourScore.text = "Congrats, you scored: " + ScoreManager.returnHighscore() + "\n" + "du Opfer";
+            YourScore.text = "Congrats, you scored: " + ScoreManager.returnHighscoreThisGame() + "\n" + "du Opfer";
         }
         else 
         {
-            YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
+            YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscoreThisGame();
         }
         yield return new WaitForSeconds(5f);
         Application.LoadLevel(loadLevel);

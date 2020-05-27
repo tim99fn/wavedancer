@@ -17,11 +17,13 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject sphere;
 
+    public MainMenuScrpt MainMenuScrpt;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        HighscoreCounter = MainMenuScrpt.returnHighscore();
     }
 
     // Update is called once per frame
@@ -45,8 +47,13 @@ public class ScoreManager : MonoBehaviour
         HighscoreText.text = "Highscore: " + HighscoreCounter;
     }
 
-    public int returnHighscore()
+    public int returnHighscoreThisGame()
     {
         return HighscoreThisGame;
+    }
+
+    public int returnHighscore()
+    {
+        return HighscoreCounter;
     }
 }

@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScrpt : MonoBehaviour
 {
-    public string loadLevel;
+    private string loadLevel = "szene_game0705";
+    private int HighscoreCounter;
+    public ScoreManager ScoreManager;
 
-    public void startGame () {
+    public void startGame () 
+    {
+        HighscoreCounter = ScoreManager.returnHighscore();
 
         Application.LoadLevel(loadLevel);
 
@@ -17,5 +21,10 @@ public class MainMenuScrpt : MonoBehaviour
 
 
         Application.Quit ();
+    }
+
+    public int returnHighscore()
+    {
+        return HighscoreCounter;
     }
 }
