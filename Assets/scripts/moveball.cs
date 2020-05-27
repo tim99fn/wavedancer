@@ -48,7 +48,7 @@ public class moveball : MonoBehaviour
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
 
-        if (GetComponent<Rigidbody>().velocity.z < 0)
+        if (GetComponent<Rigidbody>().velocity.z < 0 || GetComponent<Rigidbody>().position.y < -32)
         {
             theGameManager.RestartGame();
         }

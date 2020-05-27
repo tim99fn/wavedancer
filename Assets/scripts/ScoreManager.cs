@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
 
     private int ScoreCounter;
     private int HighscoreCounter;
+    private int HighscoreThisGame;
 
     public bool alive;
 
@@ -29,6 +30,10 @@ public class ScoreManager : MonoBehaviour
         if (alive){
             ScoreCounter = ((int)sphere.transform.position.z - 25)/10;
         }
+
+        if (ScoreCounter > HighscoreThisGame){
+            HighscoreThisGame = ScoreCounter;
+        }
         
 
         if (ScoreCounter > HighscoreCounter){
@@ -42,6 +47,6 @@ public class ScoreManager : MonoBehaviour
 
     public int returnHighscore()
     {
-        return HighscoreCounter;
+        return HighscoreThisGame;
     }
 }

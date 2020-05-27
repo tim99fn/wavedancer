@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 
@@ -21,7 +22,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        YourScore.enabled = false;
         SphereStartPoint = theSphere.transform.position;
     }
 
@@ -38,8 +39,16 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator RestartGameCo()
     {
-        YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
-        yield return new WaitForSeconds(2f);
+        YourScore.enabled = true;
+        if (ScoreManager.returnHighscore()<50)
+        {
+            YourScore.text = "Congrats, you scored: " + ScoreManager.returnHighscore() + "\n" + "du Opfer";
+        }
+        else 
+        {
+            YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscore();
+        }
+        yield return new WaitForSeconds(5f);
         Application.LoadLevel(loadLevel);
         
     }
