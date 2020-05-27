@@ -33,6 +33,18 @@ public class moveball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (Input.GetKeyDown(moveLeft)&&lanenum==1)
+        {GetComponent<Rigidbody>().transform.position=new Vector3 (0,GetComponent<Rigidbody>().transform.position.y,GetComponent<Rigidbody>().transform.position.z);
+        lanenum=0;
+        }
+        if (Input.GetKeyDown(moveRight)&&lanenum==0)
+        {
+            GetComponent<Rigidbody>().transform.position= new Vector3 (6,GetComponent<Rigidbody>().transform.position.y,GetComponent<Rigidbody>().transform.position.z);
+            lanenum=1;
+        }
+         
+
 
          yvelocity= GetComponent<Rigidbody>().velocity.y;
 
