@@ -11,9 +11,10 @@ public class MainMenuScrpt : MonoBehaviour
 
     public void startGame () 
     {
-        HighscoreCounter = ScoreManager.returnHighscore();
+        
 
         Application.LoadLevel(loadLevel);
+        //HighscoreCounter = ScoreManager.returnHighscore();
 
     }
 
