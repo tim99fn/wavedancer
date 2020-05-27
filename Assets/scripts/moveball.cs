@@ -29,33 +29,22 @@ public class moveball : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(moveLeft)&&lanenum==1&& lockcont==false)
-        {
-            horizVel = -6;
-            StartCoroutine(stopSlide());
-            lanenum--;
-                lockcont= true;
+        if (Input.GetKeyDown(moveLeft)&&lanenum==1)
+        {GetComponent<Rigidbody>().transform.position=new Vector3 (0,GetComponent<Rigidbody>().transform.position.y,GetComponent<Rigidbody>().transform.position.z);
+        lanenum=0;
         }
-        if (Input.GetKeyDown(moveRight)&&lanenum==0&&lockcont==false)
+        if (Input.GetKeyDown(moveRight)&&lanenum==0)
         {
-            horizVel = 6;
-            StartCoroutine(stopSlide());
-            lanenum++;
-           lockcont= true;
+            GetComponent<Rigidbody>().transform.position= new Vector3 (6,GetComponent<Rigidbody>().transform.position.y,GetComponent<Rigidbody>().transform.position.z);
+            lanenum=1;
         }
          
 
-         yvelocity= GetComponent<Rigidbody>().velocity.y;
-
-    }
-    IEnumerator stopSlide()
-    {
         
-        yield return new WaitForSeconds(1f);
-        horizVel = 0;
-        lockcont = false;
+    
 
     }
+    
      private void FixedUpdate() {
       if (Input.GetKey(increasegrav)){
              if (multiplier<90){
