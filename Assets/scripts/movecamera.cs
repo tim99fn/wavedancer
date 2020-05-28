@@ -46,6 +46,7 @@ public class movecamera: MonoBehaviour
   
        transform.position= new Vector3(-7,ball.transform.position.y+12,transform.position.z);
         //transform.rotation=Quaternion.Euler(70+offset.z,0,0);
+        //transform.RotateAround(ball.transform.position, new Vector3(1.0f, 0.0f, 0.0f), 50*timer);
             }
             else{
                 transform.position=new Vector3(-7,ball.transform.position.y,ball.transform.position.z)+new Vector3(0,12,-20);
