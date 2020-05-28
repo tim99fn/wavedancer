@@ -13,16 +13,23 @@ public class GameManagerScript : MonoBehaviour
     public GameObject theSphere;
     private Vector3 SphereStartPoint;
 
-    public GameObject[] wavelist;
     private string loadLevel = "Main_menu";
 
-    public Text YourScore;
+    public Text Endscore;
+    public Text Score;
+    public Text Highscore;
+    public Text HighscoreMainMenu;
     public ScoreManager ScoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        YourScore.enabled = false;
+        Endscore.enabled = false;
+        Score.enabled = true;
+        Highscore.enabled = true;
+        HighscoreMainMenu.enabled = false;
+
+
         SphereStartPoint = theSphere.transform.position;
     }
 
@@ -39,16 +46,16 @@ public class GameManagerScript : MonoBehaviour
 
     public IEnumerator RestartGameCo()
     {
-        YourScore.enabled = true;
+        Endscore.enabled = true;
         if (ScoreManager.returnHighscoreThisGame()<50)
         {
-            YourScore.text = "Congrats, you scored: " + ScoreManager.returnHighscoreThisGame() + "\n" + "du Opfer";
+            Endscore.text = "Congrats, you scored: " + ScoreManager.returnHighscoreThisGame() + "\n" + "du Opfer";
         }
         else 
         {
-            YourScore.text = " Congrats, you scored: " + ScoreManager.returnHighscoreThisGame();
+            Endscore.text = " Congrats, you scored: " + ScoreManager.returnHighscoreThisGame();
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         Application.LoadLevel(loadLevel);
         
     }

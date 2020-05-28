@@ -9,36 +9,31 @@ public class ScoreManager : MonoBehaviour
     public Text ScoreText;
     public Text HighscoreText;
 
-    private int ScoreCounter;
-    private int HighscoreCounter;
-    private int HighscoreThisGame;
+    public Text HighscoreMainMenu;
 
-    public bool alive;
+    private int ScoreCounter = 0;
+    static private int HighscoreCounter = 0;
 
     public GameObject sphere;
-
-    public MainMenuScrpt MainMenuScrpt;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        HighscoreCounter = MainMenuScrpt.returnHighscore();
+        HighscoreMainMenu.text = "Highscore: " + HighscoreCounter;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (alive){
+        if (ScoreCounter < ((int)sphere.transform.position.z - 25)/10)
+        {
             ScoreCounter = ((int)sphere.transform.position.z - 25)/10;
-        }
-
-        if (ScoreCounter > HighscoreThisGame){
-            HighscoreThisGame = ScoreCounter;
         }
         
 
-        if (ScoreCounter > HighscoreCounter){
+        if (ScoreCounter > HighscoreCounter)
+        {
             HighscoreCounter = ScoreCounter;
         }
 
@@ -49,7 +44,7 @@ public class ScoreManager : MonoBehaviour
 
     public int returnHighscoreThisGame()
     {
-        return HighscoreThisGame;
+        return ScoreCounter;
     }
 
     public int returnHighscore()
