@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScrpt : MonoBehaviour
 {
     private string loadLevel = "szene_game0705";
-    private int HighscoreCounter;
-    //public ScoreManager ScoreManager;
-    static int Highscore;
+
+    public Text Highscore;
+    public Text Score;
+    public Text endscore;
+    public Text HighscoreMainmenu;
 
 
-    private void start()
+
+    void start()
     {
-        //HighscoreCounter = ScoreManager.returnHighscore();
+         Score.enabled = false;
+        endscore.enabled = false;
+        Highscore.enabled = false;
     }
+
+    private void Awake()
+    {
+         Score.enabled = false;
+        endscore.enabled = false;
+        Highscore.enabled = false;
+        HighscoreMainmenu.enabled = true;
+    }
+    
     public void startGame () 
     {
-        
-
         Application.LoadLevel(loadLevel);
 
     }
@@ -29,8 +42,4 @@ public class MainMenuScrpt : MonoBehaviour
         Application.Quit ();
     }
 
-    public int returnHighscore()
-    {
-        return HighscoreCounter;
-    }
 }
