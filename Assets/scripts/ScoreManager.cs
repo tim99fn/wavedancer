@@ -23,10 +23,6 @@ public class ScoreManager : MonoBehaviour
         HighscoreMainMenu.text = "Highscore: " + HighscoreCounter;
     }
 
-    private void Awake()
-    {
-        //HighscoreMainMenu.text = "Current Highscore: " + HighscoreCounter;
-    }
     // Update is called once per frame
     void Update()
     {

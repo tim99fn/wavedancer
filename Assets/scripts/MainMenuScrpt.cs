@@ -20,6 +20,7 @@ public class MainMenuScrpt : MonoBehaviour
          Score.enabled = false;
         endscore.enabled = false;
         Highscore.enabled = false;
+        HighscoreMainmenu.enabled = true;
     }
 
     private void Awake()
