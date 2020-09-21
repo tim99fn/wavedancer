@@ -10,7 +10,7 @@ public class moveball : MonoBehaviour
     public float horizVel=0;
     public int lanenum = 0;
     public bool lockcont=false;
-    public float movespeed=4.0f;
+    public float movespeed=10.0f;
     public float multiplier;
     public float downtime;
     public float yvelocity;
@@ -67,8 +67,8 @@ public class moveball : MonoBehaviour
              }    
              }
         else {
-            multiplier= 0.5f;
-            timer=0;;
+            multiplier= 0.7f;
+            timer=0;
         } 
 
          this.GetComponent<Rigidbody>().AddForce(Physics.gravity*this.GetComponent<Rigidbody>().mass*multiplier, ForceMode.Acceleration);

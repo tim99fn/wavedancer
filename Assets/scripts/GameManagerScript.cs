@@ -49,12 +49,14 @@ public class GameManagerScript : MonoBehaviour
         Endscore.enabled = true;
         if (ScoreManager.returnHighscoreThisGame()<50)
         {
-            Endscore.text = "Congrats, you scored: " + ScoreManager.returnHighscoreThisGame() + "\n" + "du Opfer";
+            Endscore.text = "Congrats, you scored: " + ScoreManager.returnHighscoreThisGame() + "\n" + "du Opfer"+ "Timo boll verliert nacher";
         }
+        
         else 
         {
-            Endscore.text = " Congrats, you scored: " + ScoreManager.returnHighscoreThisGame();
+            Endscore.text = " Congrats, you scored: " + ScoreManager.returnHighscoreThisGame()+"\n"+ "du findest auch mal jemanden du larry";
         }
+
         yield return new WaitForSeconds(4f);
         Application.LoadLevel(loadLevel);
         
